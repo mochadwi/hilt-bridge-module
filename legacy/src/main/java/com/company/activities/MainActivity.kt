@@ -8,8 +8,10 @@ package com.company.activities
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.Text
+import androidx.fragment.app.viewModels
 import com.company.domain.interactor.analytics.AnalyticsUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -17,8 +19,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var analyticsUseCase: AnalyticsUseCase
+    private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
