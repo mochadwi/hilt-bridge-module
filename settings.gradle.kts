@@ -3,7 +3,7 @@ plugins {
 }
 
 include(
-    ":legacy",
+    ":presentation",
     ":domain",
     ":data:analytics",
 )
