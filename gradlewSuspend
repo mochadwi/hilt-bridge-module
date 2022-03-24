@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+echo
+pkill -SIGSTOP studio
+
+printf "============> Suspending Android Studio <============"
+
+gradleCommand="./gradlewSuspend ${@}"
+eval ${gradleCommand}
+pkill -SIGCONT studio
+
+printf "============> Resume Android Studio <============"
+echo

@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) 2020. 
+ * PT. Company
+ */
+
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation(KotlinX.coroutines.core)
+    implementation("javax.annotation:jsr250-api:_")
+    implementation("javax.inject:javax.inject:_")
+    implementation(Kotlin.stdlib.jdk8)
+
+    testImplementation(Testing.junit4)
+    testImplementation(KotlinX.coroutines.debug)
+    //<editor-fold desc="Necessary before using Coroutine 1.6">
+    testImplementation("net.java.dev.jna:jna:_")
+    testImplementation("net.java.dev.jna:jna-platform:_")
+    //</editor-fold>
+    testImplementation(KotlinX.coroutines.test)
+    testImplementation("org.mockito.kotlin:mockito-kotlin:_")
+
+    implementation("com.google.dagger:hilt-core:_")
+    kapt(Google.dagger.hilt.compiler)
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
